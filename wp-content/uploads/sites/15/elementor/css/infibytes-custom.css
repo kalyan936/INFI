@@ -1,0 +1,451 @@
+/* 
+   Infibytes Systems Custom Stylesheet
+   Provides premium glassmorphism, responsive grids, sleek gradients, and micro-animations.
+*/
+
+:root {
+    --primary-gradient: linear-gradient(135deg, #f05a28 0%, #e83338 50%, #7a288a 100%);
+    --primary-orange: #f05a28;
+    --primary-red: #e83338;
+    --primary-purple: #7a288a;
+    --dark-bg: #090b0f;
+    --card-bg: rgba(255, 255, 255, 0.03);
+    --card-border: rgba(255, 255, 255, 0.06);
+    --glass-blur: blur(16px);
+    --text-muted: #a0aec0;
+}
+
+/* Base styling for our subpages */
+.infy-subpage-container {
+    background-color: var(--dark-bg);
+    color: #ffffff;
+    font-family: 'Outfit', 'Inter Tight', 'Montserrat', sans-serif;
+    padding-bottom: 80px;
+}
+
+/* Hero Section Styles */
+.infy-hero {
+    position: relative;
+    padding: 140px 20px 80px 20px;
+    text-align: center;
+    background: radial-gradient(circle at 50% 30%, rgba(240, 90, 40, 0.12) 0%, transparent 60%);
+    overflow: hidden;
+}
+
+.infy-hero h1 {
+    font-size: 3.5rem;
+    font-weight: 900;
+    line-height: 1.2;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.infy-hero p {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Responsive Grid System */
+.infy-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.infy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+/* Premium Card Styles */
+.infy-card {
+    background: var(--card-bg);
+    backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    padding: 40px 30px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.infy-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--primary-gradient);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 0;
+}
+
+.infy-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(240, 90, 40, 0.3);
+    box-shadow: 0 10px 30px rgba(240, 90, 40, 0.08);
+}
+
+.infy-card-content {
+    position: relative;
+    z-index: 1;
+}
+
+.infy-card-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    background: rgba(240, 90, 40, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+    transition: all 0.3s ease;
+}
+
+.infy-card-icon i {
+    font-size: 28px;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.infy-card:hover .infy-card-icon {
+    background: var(--primary-gradient);
+}
+
+.infy-card:hover .infy-card-icon i {
+    -webkit-text-fill-color: #ffffff;
+}
+
+.infy-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+.infy-card p {
+    font-size: 1rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+/* Team section details */
+.infy-team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.infy-team-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    padding: 30px 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.infy-team-card:hover {
+    border-color: rgba(122, 40, 138, 0.3);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(122, 40, 138, 0.08);
+}
+
+.infy-team-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin: 0 auto 20px auto;
+    object-fit: cover;
+    border: 3px solid rgba(255, 255, 255, 0.05);
+    background: #111;
+    transition: all 0.3s ease;
+}
+
+.infy-team-card:hover .infy-team-img {
+    border-color: var(--primary-orange);
+    transform: scale(1.05);
+}
+
+.infy-team-card h4 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.infy-team-card .role {
+    font-size: 0.9rem;
+    color: var(--primary-orange);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.infy-team-card p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+/* Glassmorphic Contact Form */
+.infy-contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 50px;
+    margin-top: 60px;
+}
+
+@media (max-width: 900px) {
+    .infy-contact-wrapper {
+        grid-template-columns: 1fr;
+    }
+}
+
+.infy-contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.infy-contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.infy-contact-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.infy-contact-icon i {
+    font-size: 20px;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.infy-contact-text h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.infy-contact-text p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+
+.infy-contact-form-container {
+    background: var(--card-bg);
+    backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--card-border);
+    border-radius: 24px;
+    padding: 40px;
+}
+
+.infy-form-group {
+    margin-bottom: 25px;
+}
+
+.infy-form-group label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.infy-form-input {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    padding: 12px 16px;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.infy-form-input:focus {
+    outline: none;
+    border-color: var(--primary-orange);
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 0 10px rgba(240, 90, 40, 0.15);
+}
+
+.infy-btn {
+    background: var(--primary-gradient);
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    padding: 14px 28px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 5px 15px rgba(240, 90, 40, 0.2);
+}
+
+.infy-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(240, 90, 40, 0.35);
+}
+
+/* Success Message Overlay */
+.infy-success-msg {
+    display: none;
+    text-align: center;
+    padding: 20px;
+    background: rgba(46, 207, 113, 0.1);
+    border: 1px solid rgba(46, 207, 113, 0.3);
+    border-radius: 12px;
+    color: #2ecf71;
+    margin-bottom: 20px;
+    font-weight: 600;
+    animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Metrics styles for Industries page */
+.infy-metric-tag {
+    display: inline-block;
+    background: rgba(240, 90, 40, 0.1);
+    color: var(--primary-orange);
+    border: 1px solid rgba(240, 90, 40, 0.2);
+    border-radius: 8px;
+    padding: 4px 12px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+
+/* Industries Custom React Component Styles */
+.industry-hero-title {
+    font-size: clamp(3rem, 5vw, 4.5rem);
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 80px;
+    letter-spacing: -1.5px;
+    max-width: 900px;
+    line-height: 1.1;
+}
+
+.industry-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 20px;
+}
+@media (max-width: 768px) {
+    .industry-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.industry-card {
+    position: relative;
+    height: 400px;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: #000;
+}
+
+.industry-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%) brightness(50%);
+    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.industry-card:hover .industry-img {
+    transform: scale(1.05);
+}
+
+.industry-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(9, 11, 15, 0.95) 0%, transparent 100%);
+}
+
+.industry-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    box-sizing: border-box;
+}
+
+.industry-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.industry-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 15px;
+    margin-top: 0;
+}
+
+.industry-desc {
+    font-size: 1.05rem;
+    color: #9ca3af;
+    transition: color 0.3s ease;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.industry-card:hover .industry-desc {
+    color: #ffffff;
+}
