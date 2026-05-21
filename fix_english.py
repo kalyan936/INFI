@@ -1,79 +1,56 @@
 from pathlib import Path
-import re
 
-# Common latin/dummy website words
-latin_words = [
-    "lorem", "ipsum", "dolor", "amet", "consectetuer",
-    "adipiscing", "elit", "nullam", "phasellus",
-    "dapibus", "litora", "cubilia", "facilisi",
-    "hendrerit", "himenaeos", "tristique", "gravida",
-    "aptent", "bibendum", "penatibus", "dictumst",
-    "mollis", "ultricies", "rutrum", "morbi",
-    "laoreet", "sagittis"
-]
+fixes = {
+"Ligula hendrerit himenaeos maximus amet nulla a nibh integer. Fusce commodo aliquam cubilia eleifend in primis dictumst augue porta. Parturient aenean facilisi letius natoque dapibus metus feugiat ullamcorper fusce consectetuer augue.":
+"Infibytes Systems helps businesses use AI, data science, automation, and cloud technologies to solve real problems with simple, scalable, and intelligent digital solutions.",
 
-# English replacement sentences
-english_sentences = [
-    "We provide innovative AI and cloud solutions for modern businesses.",
-    "Our platform helps organizations automate operations and improve productivity.",
-    "We build scalable software systems designed for long-term business growth.",
-    "Our team delivers reliable technology solutions with strong performance and security.",
-    "We help businesses transform complex workflows into simple digital experiences.",
-    "Our services improve efficiency, reduce manual effort, and increase operational accuracy.",
-    "We create intelligent systems powered by AI, analytics, and automation.",
-    "Our solutions are designed to support smarter decisions and faster execution.",
-    "We focus on building practical technology that solves real business problems.",
-    "Our company combines innovation, strategy, and engineering excellence."
-]
+"Vehicula fermentum congue ligula elit velit nam quis. Nostra hac nibh posuere lorem penatibus praesent sodales ad egestas.":
+"Explore our AI, data science, generative AI, HR technology, healthcare, retail, and finance solutions built for smarter business operations.",
 
-latin_pattern = re.compile(
-    r'\b(' + '|'.join(latin_words) + r')\b',
-    re.IGNORECASE
-)
+"Feugiat ultricies cubilia metus posuere nam enim tortor":
+"Trusted by businesses for reliable, intelligent, and scalable technology solutions.",
 
-sentence_index = 0
+"Magnis litora aptent quisque consectetuer mollis imperdiet iaculis convallis. Sem aenean mollis aliquet class litora vivamus luctus faucibus suscipit cras laoreet. Quis mi ad eleifend ante risus viverra primis class ultricies consequat.":
+"Our team combines AI expertise, business understanding, and practical execution to build reliable solutions that improve operations and support long-term growth.",
 
-def replace_latin_paragraph(text):
-    global sentence_index
+"Amet convallis netus dis vitae mus gravida suscipit":
+"We help businesses automate work, connect systems, and make faster decisions with clean data and intelligent tools.",
 
-    # split into paragraphs
-    parts = re.split(r'(\n+)', text)
+"Laoreet consectetuer sapien finibus libero habitant. Volutpat phasellus bibendum molestie habitasse quis lacus.":
+"Choose intelligent solutions that reduce manual effort, improve accuracy, and help your team work faster with modern technology.",
 
-    for i, part in enumerate(parts):
-        word_count = len(part.split())
+"Sagittis nullam tincidunt lobortis morbi facilisi dapibus":
+"Our solutions are secure, scalable, and built around your business needs.",
 
-        # detect latin-heavy paragraph
-        latin_matches = latin_pattern.findall(part)
+"Elit nullam rutrum euismod blandit quisque nibh penatibus nostra. Vestibulum ultricies sapien facilisi pede id pellentesque. Turpis dolor magna dictumst congue litora parturient si erat aptent.":
+"We build generative AI and LLM systems that help businesses search documents, automate workflows, answer questions, and improve productivity.",
 
-        if len(latin_matches) >= 2 and word_count > 4:
-            parts[i] = english_sentences[
-                sentence_index % len(english_sentences)
-            ]
-            sentence_index += 1
+"Nam tristique lobortis nibh leo lacus diam lectus gravida purus":
+"We understand the requirement, plan the solution, build it carefully, test it properly, and improve it continuously.",
 
-    return ''.join(parts)
+"Project Done": "Projects Delivered",
+"Happy Clients": "Satisfied Clients",
+"Top-Rated Expert": "Expert Team",
+"Tailored Business Solutions": "Custom Business Solutions",
+"INFIBYTE SYSTEMS": "INFIBYTES SYSTEMS",
+"@ 2026 Infibytes Systems": "© 2026 Infibytes Systems",
+}
 
-# scan all website files
 for file in Path(".").rglob("*"):
-    if file.suffix.lower() not in [
-        ".html", ".js", ".jsx",
-        ".ts", ".tsx", ".css"
-    ]:
+    if file.suffix.lower() not in [".html", ".js", ".jsx", ".ts", ".tsx"]:
         continue
 
-    try:
-        content = file.read_text(
-            encoding="utf-8",
-            errors="ignore"
-        )
+    text = file.read_text(encoding="utf-8", errors="ignore")
+    old = text
 
-        updated = replace_latin_paragraph(content)
+    for wrong, right in fixes.items():
+        text = text.replace(wrong, right)
 
-        if updated != content:
-            file.write_text(updated, encoding="utf-8")
-            print("Fixed:", file)
+    text = text.replace(
+        "<li>Report an Issue</li>\n<li>Report an Issue</li>",
+        "<li>Report an Issue</li>"
+    )
 
-    except Exception as e:
-        print("Error:", file, e)
-
-print("Latin text replacement completed.")
+    if text != old:
+        file.write_text(text, encoding="utf-8")
+        print("Fixed:", file)
