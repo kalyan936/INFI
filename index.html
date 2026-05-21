@@ -727,129 +727,6 @@
 }
 </style>
 
-
-<style id="infibytes-global-theme">
-/* =========================================================
-   INFIBYTES GLOBAL BACKGROUND + PAGE THEME
-   Applies to Home, About, Services, Industries, and Contact
-   ========================================================= */
-
-html,
-body {
-  min-height: 100%;
-  background:
-    radial-gradient(circle at 75% 10%, rgba(59, 130, 246, 0.75), transparent 28%),
-    radial-gradient(circle at 45% 20%, rgba(168, 85, 247, 0.45), transparent 32%),
-    radial-gradient(circle at 12% 35%, rgba(88, 28, 135, 0.45), transparent 35%),
-    #12091f !important;
-  background-attachment: fixed !important;
-  color: #ffffff !important;
-  overflow-x: hidden !important;
-}
-
-/* Keep Elementor sections transparent so the theme is visible */
-.elementor,
-.elementor-section,
-.elementor-container,
-.elementor-column,
-.elementor-widget-wrap,
-.elementor-widget-container,
-.e-con,
-.e-con-inner,
-.elementor-location-header,
-.elementor-location-footer,
-.elementor-background-overlay {
-  background-color: transparent !important;
-}
-
-/* Stop Elementor lazy background rule from hiding page theme */
-.e-con.e-parent:not(.e-lazyloaded):not(.e-no-lazyload),
-.e-con.e-parent:not(.e-lazyloaded):not(.e-no-lazyload) * {
-  background-image: inherit;
-}
-
-/* Headings and body copy */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.elementor-heading-title,
-.ekit-heading--title {
-  color: #ffffff !important;
-}
-
-p,
-.elementor-icon-box-description,
-.elementor-widget-text-editor,
-.elementor-counter-title,
-.elementor-image-box-description {
-  color: #d7d1df !important;
-}
-
-/* Buttons */
-.elementor-button {
-  background: linear-gradient(90deg, #7c3aed, #2563eb) !important;
-  border: none !important;
-  border-radius: 12px !important;
-  color: #ffffff !important;
-  transition: transform .25s ease, opacity .25s ease;
-}
-
-.elementor-button:hover {
-  transform: translateY(-2px);
-  opacity: .92;
-}
-
-/* Images */
-img {
-  image-rendering: auto;
-}
-
-.elementor-widget-image img,
-.elementor-widget-image-box img {
-  border-radius: 16px;
-}
-
-/* Cards / boxes */
-.elementor-widget-icon-box,
-.elementor-widget-image-box,
-.elementor-widget-counter,
-.elementor-widget-rating {
-  backdrop-filter: blur(10px);
-  border-radius: 18px;
-}
-
-/* Video overlays should not create harsh blocks */
-.elementor-background-video-container::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(10, 5, 20, 0.55);
-  pointer-events: none;
-}
-
-/* Industry banking image fix */
-img[alt*="Bank"],
-img[title*="Bank"],
-img[src*="bank"],
-img[src*="finance"] {
-  opacity: 1 !important;
-  visibility: visible !important;
-  display: block !important;
-  object-fit: cover !important;
-}
-
-/* Footer should blend with theme */
-.elementor-element-f977387 {
-  background:
-    radial-gradient(circle at 18% 0%, rgba(168,85,247,0.22), transparent 30%),
-    radial-gradient(circle at 82% 0%, rgba(59,130,246,0.18), transparent 28%),
-    #170f26 !important;
-}
-</style>
-
 </head>
 
 <body
@@ -1933,9 +1810,9 @@ img[src*="finance"] {
 								data-id="c63be47" data-element_type="widget" data-e-type="widget"
 								data-widget_type="image.default">
 								<img decoding="async"
-									src="https://images.unsplash.com/photo-1541354329998-f447a4c92970?auto=format&fit=crop&q=80&w=1200"
-									title="Banking and Finance Industry"
-									alt="Banking and Finance Industry" loading="lazy" style="width:100%;height:220px;object-fit:cover;border-radius:18px;" />
+									src="./icons/service_finance.svg"
+									title="Artificial Intelligence Industry Blue Line-15 1"
+									alt="Artificial Intelligence Industry Blue Line-15 1" loading="lazy" />
 							</div>
 							<div class="elementor-element elementor-element-ad46da9 elementor-widget elementor-widget-icon-box"
 								data-id="ad46da9" data-element_type="widget" data-e-type="widget"
